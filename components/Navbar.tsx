@@ -29,7 +29,7 @@ export const Navbar = (): React.ReactElement => {
   return (
     <div className="flex items-center justify-between gap-10 border-b-white border-b pt-5 pb-2 px- mb-10">
       <p className=" font-semibold text-xl">{user.nickname}</p>
-      <ul className="flex items-center gap-5">
+      <ul className="lg:flex lg:items-center lg:gap-5">
         <li className=" cursor-pointer hover:underline">
           <Link href="/user">Usuarios</Link>
         </li>

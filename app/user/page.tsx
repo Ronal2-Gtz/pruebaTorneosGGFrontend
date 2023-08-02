@@ -57,12 +57,12 @@ export default function User() {
   };
 
   return (
-    <main className="grid grid-cols-12 gap-10">
-      <div className="col-span-6">
+    <main className="grid grid-cols-6 lg:grid-cols-12 gap-10">
+      <div className="col-span-6 lg:col-span-6">
         <div className="flex w-full justify-center">
-          <h1 className=" text-2xl font-semibold mb-5">Crear usuario</h1>
+          <h1 className="text-2xl font-semibold mb-5">Crear usuario</h1>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col gap-4">
           <div>
             <input
               type="text"
@@ -113,7 +113,7 @@ export default function User() {
           </div>
         </form>
       </div>
-      <div className="col-span-6">
+      <div className="col-span-6 lg:col-span-6">
         <div className="flex flex-col w-full items-center justify-center">
           <h1 className=" text-2xl font-semibold mb-5">Usuarios</h1>
           <form onSubmit={handleSubmitUser(changeUser)} className="w-full">

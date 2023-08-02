@@ -93,7 +93,7 @@ export default function News({ params }: NewsProps): React.ReactElement {
 
   return (
     <main>
-      <div className="grid grid-cols-12 gap-5 ">
+      <div className="grid grid-cols-6 lg:grid-cols-12 gap-5 ">
         <Image
           width={0}
           height={0}
@@ -107,7 +107,7 @@ export default function News({ params }: NewsProps): React.ReactElement {
             {News?.title}
           </p>
           <p className="whitespace-pre-line	mb-16">{News?.content}</p>
-          <div className="w-full flex  justify-end gap-5 absolute bottom-0 ">
+          <div className="w-full flex justify-center lg:justify-end gap-5 absolute bottom-0 ">
             <button
               className="flex gap-2 border p-2  rounded-md  text-yellow-500 border-yellow-500 "
               onClick={handleEditNews}
