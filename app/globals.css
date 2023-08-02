@@ -17,6 +17,9 @@
 }
 
 body {
+  padding: 50px;
+  max-width: 1050px;
+  margin: 0 auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +27,18 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+input[type=text],input[type=password], textarea, select{
+  min-width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+select option {
+  background: black;
+  color: #fff;
 }
