@@ -11,7 +11,7 @@ type FormData = {
   lastname: string;
   nickname: string;
   password: string;
-  id?: string
+  id?: string;
 };
 
 type ChangeUser = {
@@ -51,9 +51,9 @@ export default function User() {
 
   const changeUser = (data: ChangeUser): void => {
     const user = Users?.find((user) => user.nickname === data.user) as User;
-
-    setUser(user!)
-    ResetUser()
+    localStorage.setItem("user", JSON.stringify(user));
+    setUser(user);
+    ResetUser();
   };
 
   return (

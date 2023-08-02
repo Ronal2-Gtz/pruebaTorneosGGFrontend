@@ -106,7 +106,7 @@ export const NewsForm = ({ id }: NewsFormProps) => {
         )}
       </div>
 
-      <input className="cursor-pointer" type="submit" />
+      <input className="border border-blue-700 text-blue-700 p-2 rounded-sm cursor-pointer mt-5" type="submit" />
     </form>
   );
 };

@@ -15,6 +15,7 @@ import {
   useCreateCommentary,
 } from "@/services/Commentary.services";
 import UserContext from "../UserConext";
+import { Loading } from "@/components/Loading";
 
 type NewsProps = {
   params: {
@@ -81,7 +82,12 @@ export default function News({ params }: NewsProps): React.ReactElement {
     }
   }, [commentary]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="h-screen w-full flex items-center justify-center">
+        <Loading />
+      </div>
+    );
 
   const { ref, ...rest } = register("commentary");
 

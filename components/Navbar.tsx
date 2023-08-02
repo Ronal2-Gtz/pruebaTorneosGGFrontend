@@ -30,11 +30,15 @@ export const Navbar = (): React.ReactElement => {
     <div className="flex items-center justify-between gap-10 border-b-white border-b pt-5 pb-2 px- mb-10">
       <p className=" font-semibold text-xl">{user.nickname}</p>
       <ul className="flex items-center gap-5">
-        {links.map((link) => (
-          <li key={link.id} className=" cursor-pointer hover:underline">
-            <Link href={link.route}>{link.label}</Link>
-          </li>
-        ))}
+        <li className=" cursor-pointer hover:underline">
+          <Link href="/user">Usuarios</Link>
+        </li>
+        {user.id &&
+          links.map((link) => (
+            <li key={link.id} className=" cursor-pointer hover:underline">
+              <Link href={link.route}>{link.label}</Link>
+            </li>
+          ))}
       </ul>
     </div>
   );
