@@ -1,10 +1,10 @@
 import axios, { AxiosError } from "axios";
+import { BASE_URL } from "../utils/const";
 import {
   UseMutationResult,
   useMutation,
   UseQueryResult,
   useQuery,
-  useQueryClient,
 } from "react-query";
 
 type ErrorAttr = AxiosError<{
@@ -19,7 +19,7 @@ type Commentary = {
   user: {
     nickname: string;
     lastname: string;
-  }
+  };
 };
 
 type CreateCommentary = {
@@ -32,7 +32,7 @@ const useCommentaries = (
   id: string
 ): UseQueryResult<Commentary[], ErrorAttr> => {
   return useQuery(`commentaries_${id}`, async () => {
-    const { data } = await axios.get(`http://localhost:8080/commentary/${id}`);
+    const { data } = await axios.get(`${BASE_URL}/commentary/${id}`);
     return data;
   });
 };
@@ -44,7 +44,7 @@ const useCreateCommentary = (): UseMutationResult<
 > => {
   return useMutation(async (commentary: CreateCommentary) => {
     const { data } = await axios.post(
-      "http://localhost:8080/commentary",
+      `${BASE_URL}/commentary`,
       commentary
     );
 

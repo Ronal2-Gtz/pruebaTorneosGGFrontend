@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/utils/const";
 import axios, { AxiosError } from "axios";
 import {
   UseMutationResult,
@@ -25,7 +26,7 @@ const useNews = (id?: string | null): UseQueryResult<News, ErrorAttr> => {
   return useQuery(
     `news_${id}`,
     async () => {
-      const { data } = await axios.get(`http://localhost:8080/news/${id}`);
+      const { data } = await axios.get(`${BASE_URL}/news/${id}`);
       return data;
     },
     {
@@ -36,7 +37,7 @@ const useNews = (id?: string | null): UseQueryResult<News, ErrorAttr> => {
 
 const useListNews = (): UseQueryResult<News[], ErrorAttr> => {
   return useQuery("news", async () => {
-    const { data } = await axios.get("http://localhost:8080/news");
+    const { data } = await axios.get(`${BASE_URL}/news`);
     return data;
   });
 };
@@ -45,7 +46,7 @@ const useCreateNews = (): UseMutationResult<News, ErrorAttr, News> => {
   const queryClient = useQueryClient();
   return useMutation(
     async (news: News) => {
-      const { data } = await axios.post("http://localhost:8080/news", news);
+      const { data } = await axios.post(`${BASE_URL}/news`, news);
 
       return data;
     },
@@ -64,7 +65,7 @@ const useUpdateNews = (): UseMutationResult<News, ErrorAttr, News> => {
     async (news: News) => {
       const { id, ...otherNews } = news;
       const { data } = await axios.put(
-        `http://localhost:8080/news/${id}`,
+        `${BASE_URL}/news/${id}`,
         otherNews
       );
 
@@ -83,7 +84,7 @@ const useDeleteNews = (): UseMutationResult<unknown, ErrorAttr, string> => {
 
   return useMutation(
     async (id: string) => {
-      const { data } = await axios.delete(`http://localhost:8080/news/${id}`);
+      const { data } = await axios.delete(`${BASE_URL}/news/${id}`);
       return data;
     },
     {

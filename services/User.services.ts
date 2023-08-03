@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/utils/const";
 import axios, { AxiosError } from "axios";
 import { UseMutationResult, UseQueryResult, useMutation, useQuery, useQueryClient } from "react-query";
 
@@ -17,7 +18,7 @@ type User = {
 
 const useListUser = (): UseQueryResult<User[], ErrorAttr> => {
     return useQuery("user", async () => {
-      const { data } = await axios.get("http://localhost:8080/user");
+      const { data } = await axios.get(`${BASE_URL}/user`);
       return data;
     });
   };
@@ -27,7 +28,7 @@ const useCreateUser = (): UseMutationResult<User, ErrorAttr, User> => {
   const queryClient = useQueryClient();
   return useMutation(
     async (user: User) => {
-      const { data } = await axios.post("http://localhost:8080/user", user);
+      const { data } = await axios.post(`${BASE_URL}/user`, user);
 
       return data;
     },
